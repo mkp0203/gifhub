@@ -20,6 +20,7 @@ body {
 
 #header {
     text-align: left;
+    letter-spacing: 2px;
 }
 
 #header-content {
@@ -40,6 +41,8 @@ body {
 
 #motto {
     padding-top: 15px;
+    margin: 0;
+    font-size: 20px;
 }
 
 #form {
@@ -52,6 +55,8 @@ body {
     border: none;
     border-bottom: #f8f9fa73 solid 1px;
     outline: none;
+    width: 50%;
+    background: #ffffff0c;
 }
 
 ::placeholder {
@@ -61,6 +66,10 @@ body {
 #btn {
     color: yellow;
     padding: 2px;
+}
+
+#btn:hover {
+    color: #212529; 
 }
 
 /* Media Queries */
