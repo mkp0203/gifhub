@@ -1,33 +1,58 @@
-$("#btn").on("click", function (event) {
-    event.preventDefault();
-    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
-    url += '?' + $.param({
-        'api-key': "f4bad8a91e374aa1bfc7996fe3539064",
-        'q': $("#SearchTerm").val(),
-        'begin_date': "19500101",
-        'end_date': "20180730"
-    });
+var topics = ["cats", "dogs", "hockey"];
+
+function displayGifs() {
+
+    var gif = $(this).attr("data-name");
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=ttdKlgP23DQ4UUSWi5VxlHmpjLGuwtUW&limit=10";
 
     $.ajax({
-        url: url,
-        method: 'GET',
-    }).then(function (nyt) {
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
 
-        var results = nyt.response.docs;
+        console.log(response);
 
-        $("#articles-data").empty();
-        
-        for (var i = 0; i < results.length; i++) {
-            var article = $("<article>");
-            var article1 = $("<p>").text(results[i].snippet);
-            var article2 = $("<p>").text(results[i].web_url);
-            
-            article.append(article1);
-            article.append(article2);
-            
-            $("#articles-data").append(article);
+        var gifDiv = $("<div class='gif'>");
 
-        }
+        var rating = response.Rated;
+
+        var pRating = $("<p>").text("Rating: " + rating);
+
+        gifDiv.append(pRating);
+
+        var url = response.url;
+
+        var gifURL = $("div").attr("src", url);
+
+        $("#gifboard").prepend(gifDiv);
     });
 
+}
+
+function gifButtons() {
+
+    $("#gifButtons").empty();
+
+    for (var i = 0; i < topics.length; i++) {
+
+        var b = $("<button>");
+        b.addClass("gif-button");
+        b.attr("name", topics[i]);
+        b.text(topics[i]);
+        $("#gifButtons").append(b);
+
+    }
+};
+
+$("#submitBtn").on("click", function (event) {
+
+    event.preventDefault();
+    var input = $("#input").val().trim();
+    topics.push(input);
+    gifButtons();
+    
 });
+
+$(document).on("click", ".gif-button", displayGifs);
+
+gifButtons();
