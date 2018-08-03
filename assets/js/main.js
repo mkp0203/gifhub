@@ -1,58 +1,64 @@
-var topics = ["cats", "dogs", "hockey"];
+$(document).ready(function () {
+    
+    function displayGifs() {
+        var gif = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=ttdKlgP23DQ4UUSWi5VxlHmpjLGuwtUW&limit=10";
 
-function displayGifs() {
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
 
-    var gif = $(this).attr("data-name");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=ttdKlgP23DQ4UUSWi5VxlHmpjLGuwtUW&limit=10";
+            var results = response.data;
+            for (var i = 0; i < results.length; i++) {
+                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                    var gifDiv = $("<div class='gif'>");
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
+                    var rating = results[i].rating;
 
-        console.log(response);
+                    var p = $("<p>").text("Rating: " + rating);
 
-        var gifDiv = $("<div class='gif'>");
+                    var gifImage = $("<img>");
 
-        var rating = response.Rated;
+                    gifImage.attr("src", results[i].images.fixed_height.url);
 
-        var pRating = $("<p>").text("Rating: " + rating);
+                    gifDiv.append(p);
+                    gifDiv.append(gifImage);
 
-        gifDiv.append(pRating);
+                    $("#gifDisplay").prepend(gifDiv);
+                };
+            };
 
-        var url = response.url;
+        });
+    };
 
-        var gifURL = $("div").attr("src", url);
+    var topics = ["cats", "dogs", "hockey"];
 
-        $("#gifboard").prepend(gifDiv);
+    function gifButtons() {
+
+        $("#dynamicButtons").empty();
+
+        for (var i = 0; i < topics.length; i++) {
+
+            var b = $("<button>");
+            b.addClass("gif-button");
+            b.attr("data-name", topics[i]);
+            b.text(topics[i]);
+            $("#dynamicButtons").append(b);
+
+        }
+    };
+
+    $("#submitBtn").on("click", function (e) {
+
+        e.preventDefault();
+        var input = $("#input").val().trim();
+        topics.push(input);
+        gifButtons();
+
     });
 
-}
+    $(document).on("click", "gif-button", displayGifs);
 
-function gifButtons() {
-
-    $("#gifButtons").empty();
-
-    for (var i = 0; i < topics.length; i++) {
-
-        var b = $("<button>");
-        b.addClass("gif-button");
-        b.attr("name", topics[i]);
-        b.text(topics[i]);
-        $("#gifButtons").append(b);
-
-    }
-};
-
-$("#submitBtn").on("click", function (event) {
-
-    event.preventDefault();
-    var input = $("#input").val().trim();
-    topics.push(input);
     gifButtons();
-    
 });
-
-$(document).on("click", ".gif-button", displayGifs);
-
-gifButtons();
