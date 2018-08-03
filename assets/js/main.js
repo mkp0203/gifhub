@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     function displayGifs() {
         var gif = $(this).attr("data-name");
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=ttdKlgP23DQ4UUSWi5VxlHmpjLGuwtUW&limit=10";
@@ -10,28 +10,27 @@ $(document).ready(function () {
         }).then(function (response) {
 
             var results = response.data;
+
             for (var i = 0; i < results.length; i++) {
-                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-                    var gifDiv = $("<div class='gif'>");
 
-                    var rating = results[i].rating;
+                var $gifDiv = $("<div class='gif'>");
 
-                    var p = $("<p>").text("Rating: " + rating);
+                var rating = results[i].rating;
 
-                    var gifImage = $("<img>");
+                var $p = $("<p>").text("Rating: " + rating);
 
-                    gifImage.attr("src", results[i].images.fixed_height.url);
+                var $gifImage = $("<img>");
 
-                    gifDiv.append(p);
-                    gifDiv.append(gifImage);
+                $gifImage.attr("src", results[i].images.fixed_height.url);
 
-                    $("#gifDisplay").prepend(gifDiv);
-                };
+                $gifDiv.append($p);
+                $gifDiv.append($gifImage);
+
+                $("#gifDisplay").prepend($gifDiv);
             };
-
         });
     };
-
+    
     var topics = ["cats", "dogs", "hockey"];
 
     function gifButtons() {
@@ -58,7 +57,8 @@ $(document).ready(function () {
 
     });
 
-    $(document).on("click", "gif-button", displayGifs);
+    $(document).on("click", ".gif-button", displayGifs);
 
     gifButtons();
+    
 });
