@@ -41,6 +41,8 @@ $(document).ready(function () {
 
             var b = $("<button>");
             b.addClass("gif-button");
+            b.addClass("btn");
+            b.addClass("btn-outline-light");
             b.attr("data-name", topics[i]);
             b.text(topics[i]);
             $("#dynamicButtons").append(b);
@@ -48,9 +50,9 @@ $(document).ready(function () {
         }
     };
 
-    $("#submitBtn").on("click", function (e) {
+    $("#submitBtn").on("click", function (event) {
 
-        e.preventDefault();
+        event.preventDefault();
         var input = $("#input").val().trim();
         topics.push(input);
         gifButtons();
