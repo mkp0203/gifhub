@@ -26,20 +26,17 @@ body {
 }
 
 #header-content {
-    border-radius: 3px;
     font-size: 60px;
     font-weight: bold;
     margin: 0;
 }
 
 #hubBG {
-    background: yellow;
-    /* background: rgb(0,255,255); */
+    background: rgb(0,255,255);
     padding: 0px 2px 0px 2px;
     margin: 0px 4px 0px 4px;
     border-radius: 3px;
-    box-shadow: 0px 0px 5px 2px yellow;
-    border: none;
+    box-shadow: 0px 0px 5px 2px rgb(0,255,255);
 }
 
 #motto {
@@ -68,12 +65,16 @@ body {
 }
 
 #btn {
-    color: yellow;
+    color: rgb(0,255,255);
     padding: 2px;
 }
 
 #btn:hover {
     color: #212529; 
+}
+
+.gif-button {
+    text-transform: capitalize;
 }
 
 .btn {
@@ -85,7 +86,7 @@ body {
 }
 
 .gif {
-    margin: 3px;
+    margin: 5px;
     display: inline-block;
 }
 
@@ -94,6 +95,7 @@ p {
 }
 
 .giphy {
-    border: solid 1px yellow;
+    border: solid 1px rgb(0,255,255);
     cursor: pointer;
+    box-shadow: 0px 0px 4px 1px rgb(0,255,255);
 }
