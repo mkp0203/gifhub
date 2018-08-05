@@ -23,10 +23,13 @@ $(document).ready(function () {
 
                 $gifImage.attr("src", results[i].images.fixed_height.url);
 
+                $gifDiv.addClass("float-left");
+
                 $gifDiv.append($p);
                 $gifDiv.append($gifImage);
 
                 $("#gifDisplay").prepend($gifDiv);
+                
             };
         });
     };
