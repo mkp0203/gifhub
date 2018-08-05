@@ -80,8 +80,13 @@ body {
     margin: 5px;
 }
 
+#gifDisplay {
+    justify-content: center;
+}
+
 .gif {
     margin: 3px;
+    display: inline-block;
 }
 
 p {

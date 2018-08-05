@@ -25,7 +25,7 @@ $(document).ready(function () {
                 $gifImage.addClass("giphy");
                 $gifImage.attr("src", results[i].images.fixed_height_still.url);
 
-                $gifDiv.addClass("float-left");
+                // $gifDiv.addClass("float-left");
                 $gifDiv.append($p);
                 $gifDiv.append($gifImage);
 
