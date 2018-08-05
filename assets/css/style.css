@@ -6,6 +6,8 @@ html {
 
 body {
     background: url('../img/grey_wash_wall.png');
+    display: flex;
+    flex-direction: column;
 }
 
 .jumbotron {
@@ -84,4 +86,9 @@ body {
 
 p {
     margin: 20px 10px 3px 10px;
+}
+
+.giphy {
+    border: solid 1px yellow;
+    cursor: pointer;
 }
