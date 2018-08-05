@@ -18,15 +18,12 @@ $(document).ready(function () {
                 var rating = results[i].rating;
 
                 var $p = $("<p>").text("Rating: " + rating.toUpperCase());
-
                 $p.addClass("text-center");
 
                 var $gifImage = $("<img>");
-
                 $gifImage.attr("src", results[i].images.fixed_height.url);
 
                 $gifDiv.addClass("float-left");
-
                 $gifDiv.append($p);
                 $gifDiv.append($gifImage);
 
