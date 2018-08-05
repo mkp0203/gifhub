@@ -17,7 +17,9 @@ $(document).ready(function () {
 
                 var rating = results[i].rating;
 
-                var $p = $("<p>").text("Rating: " + rating);
+                var $p = $("<p>").text("Rating: " + rating.toUpperCase());
+
+                $p.addClass("text-center");
 
                 var $gifImage = $("<img>");
 

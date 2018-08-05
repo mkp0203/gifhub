@@ -1,6 +1,6 @@
 html {
     min-height: 100%;
-    position: relative;
+    max-width: 100%;
     box-sizing: border-box;
 }
 
@@ -74,6 +74,10 @@ body {
     color: #212529; 
 }
 
+.btn {
+    margin: 5px;
+}
+
 p {
-    margin: 10px 10px 3px 10px;
+    margin: 20px 10px 3px 10px;
 }
