@@ -36,7 +36,7 @@ $(document).ready(function () {
     };
 
     // Play/Stop Gifs
-    $('body').on('click', '.giphy', function () {
+    $('body').on('click', '.gif-image', function () {
         var src = $(this).attr("src");
         if ($(this).hasClass('playing')) {
             //stop
