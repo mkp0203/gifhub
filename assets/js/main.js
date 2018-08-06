@@ -20,9 +20,10 @@ $(document).ready(function () {
 
                 var $p = $("<p>").text("Rating: " + rating.toUpperCase());
                 $p.addClass("text-center");
+                $p.addClass("gif-ratings")
 
                 var $gifImage = $("<img>");
-                $gifImage.addClass("giphy");
+                $gifImage.addClass("gif-image");
                 $gifImage.attr("src", results[i].images.fixed_height_still.url);
 
                 // $gifDiv.addClass("float-left");
