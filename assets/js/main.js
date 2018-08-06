@@ -70,10 +70,10 @@ $(document).ready(function () {
     };
 
     // Accepting user input and pushing to array
-    $("#submitBtn").on("click", function (event) {
+    $("#form-submit").on("click", function (event) {
 
         event.preventDefault();
-        var input = $("#input").val().trim();
+        var input = $("#form-input").val().trim();
         topics.push(input);
         gifButtons();
 
