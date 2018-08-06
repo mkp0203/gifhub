@@ -20,28 +20,31 @@
 
 <body>
 
-    <div class="jumbotron bg-dark text-light">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-sm-6 text-center text-sm-left" id="logo">
-                    <h1 id="logo-gif">Gif<span class="text-dark" id="logo-hub">Hub</span></h1>
+    <div class="wrapper">
+        <div class="jumbotron bg-dark text-light">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-sm-6 text-center text-sm-left" id="logo">
+                        <h1 id="logo-gif">Gif<span class="text-dark" id="logo-hub">Hub</span></h1>
+                    </div>
+                    <div class="col-sm-6 text-center text-sm-right" id="form">
+                        <input type="text" placeholder="Search" class="bg-dark" id="form-input">
+                        <input type="button" value="Add" class="btn btn-outline-light" id="form-submit">
+                    </div>
                 </div>
-                <div class="col-sm-6 text-center text-sm-right" id="form">
-                    <input type="text" placeholder="Search" class="bg-dark" id="form-input">
-                    <input type="button" value="Add" class="btn btn-outline-light" id="form-submit">
-                </div>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-sm-12">
+                <div id="dynamicButtons"></div>
+            </div>
+            <div class="col-sm-12">
+                <div id="gifDisplay"></div>
             </div>
         </div>
     </div>
 
-    <div class="row text-center">
-        <div class="col-sm-12">
-            <div id="dynamicButtons"></div>
-        </div>
-        <div class="col-sm-12">
-            <div id="gifDisplay"></div>
-        </div>
-    </div>
 
 </body>
 
