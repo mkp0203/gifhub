@@ -62,6 +62,12 @@ html, body {
     margin: 0px 5px 20px 5px;
 }
 
+img {
+    vertical-align: middle;
+    border-style: none;
+    max-width: 100%;
+}
+
 .gif {
     margin: 5px;
     display: inline-block;
